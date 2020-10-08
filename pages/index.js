@@ -10,6 +10,7 @@ import Copyright from "../components/Copyright/Copyright";
 import LoginForm from "../components/Forms/auth/LoginForm";
 import { setToken } from "../utils/localStorage";
 import { useState } from "react";
+import * as urls from '../constants/urls'
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -29,7 +30,7 @@ export default function Home() {
           token: btoa("admin"),
         };
         setToken(JSON.stringify(user));
-        Router.push("admin/dashboard");
+        Router.push(urls.dahsboard);
       } else {
         setError({
           isError: true,
