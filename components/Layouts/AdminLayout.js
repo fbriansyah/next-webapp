@@ -4,10 +4,7 @@ import Header from "../UI/Header/Header";
 import Drawer from "../UI/Drawer/Drawer";
 import Copyright from "../Copyright/Copyright";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
-import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 export default function AdminLayout({ children, title }) {
   const [open, setOpen] = useState(true);
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -46,11 +42,7 @@ export default function AdminLayout({ children, title }) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>{children}</Paper>
-            </Grid>
-          </Grid>
+          {children}
           <Box pt={4}>
             <Copyright />
           </Box>
